@@ -1,0 +1,1 @@
+/usr/bin/c++ -rdynamic CMakeFiles/server_app.dir/src/TcpServer.cpp.o CMakeFiles/server_app.dir/src/TcpSocket.cpp.o CMakeFiles/server_app.dir/src/main_server.cpp.o -o ../server_app  -lmysqlclient -lpthread 
