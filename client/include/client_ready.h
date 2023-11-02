@@ -156,7 +156,7 @@ enum class chose
 int Chose_Function() //ѡ����ɾ���
 {
     std::cout << "******************************************************" << std::endl;
-    std::cout << "**************    input num to use    ****************" << std::endl;
+    std::cout << "************    input num to use    ******************" << std::endl;
     std::cout << "*****    0.add    ************    1.delete    ********" << std::endl;
     std::cout << "*****    2.select ************    3.modify    ********" << std::endl;
     std::cout << "******************************************************" << std::endl;
@@ -225,11 +225,17 @@ falg:
 
 void Sel_Action(TcpSocket& client, Login& user)
 {
+    flag:
     std::cout << "select your find way" << std::endl
         << "1. select all" << std::endl
         << "2. select by more ways" << std::endl;
     int input;
     std::cin >> input;
+    if(input != 1 && input != 2)
+    {
+        std::cout << "input error,try again" <<std::endl;
+        goto flag;
+    }
 
     std::string sql("select * from stu_msg ");
     if (input == 1)
@@ -259,10 +265,17 @@ void Sel_Action(TcpSocket& client, Login& user)
 
 void Mod_Action(TcpSocket& client, Login& user) //�޸��˺���Ϣ���Լ�����Ϣ
 {
+    flag:
     std::cout << "which you want to modify :" << std::endl;
     std::cout << "account/table msg (1/0) :" << std::endl;
     int chose;
     std::cin >> chose;
+    if(chose != 1 && chose != 2)
+    {
+        std::cout << "input error,try again" <<std::endl;
+        goto flag;
+    }
+
     if (chose) //�޸��˺���Ϣ
     {
         std::string newpassword;
@@ -296,3 +309,4 @@ void Mod_Action(TcpSocket& client, Login& user) //�޸��˺���Ϣ��
         client.Send_Msg(sql);
     }
 }
+
