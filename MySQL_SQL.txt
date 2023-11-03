@@ -1,0 +1,28 @@
+create database if not exists 9tse default charset utf8mb4;
+
+use 9tse;
+
+create table stu_msg(
+  id int primary key AUTO_INCREMENT COMMENT '主键',
+  num varchar(25) NOT NULL unique COMMENT '学号',
+  name varchar(10) NOT NULL COMMENT '姓名',
+  gender char(1) NOT NULL COMMENT '性别',
+  profession varchar(50) NOT NULL COMMENT '专业',
+  class int NOT NULL COMMENT '班级',
+  score float NOT NULL COMMENT '成绩'
+)COMMENT '学生信息表';
+
+insert into stu_msg(num,name,gender,profession,class,score) VALUES('xxxxxx','xxx','男','计算机','1','4.1');
+
+insert into stu_msg(id,num,name,gender,profession,class,score) VALUES(1,'xxxxxxxx','name','男','计算机',1,4.4);
+
+alter table stu_msg MODIFY score varchar(10) comment'成绩';
+alter table stu_msg MODIFY class varchar(10) comment'成绩';
+
+update stu_msg set id = 1 where id = 4;
+
+delete from stu_msg where id = 1;
+
+select * from stu_msg where id = 1;
+
+select * from stu_msg;
